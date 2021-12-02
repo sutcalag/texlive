@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run: |
           echo $PATH
-          source /root/.bashrc
+          export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux:/root/.fnm:$PATH
           echo $PATH
           tlmgr --help
           mkdir docs
