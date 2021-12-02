@@ -11,9 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    container:
+      image: xiaohongczh/xelatex:latest
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://xiaohongczh/xelatex:latest
-      - run: pandoc -v
       - run: tlmgr --
+      - run: pandoc -v
