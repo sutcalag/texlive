@@ -15,5 +15,7 @@ jobs:
       image: xiaohongczh/xelatex:latest
     steps:
       - uses: actions/checkout@v2
-      - run: tlmgr --
       - run: pandoc -v
+      - run: /bin/bash
+      - run: tlmgr --
+
