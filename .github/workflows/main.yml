@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build doc
+        shell: bash
         run: |
           source /root/.bashrc
           tlmgr --help
