@@ -16,17 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build doc
+        shell: bash
+#         export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux
         run: |
-          pandoc -v
-          export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux
+          tlmgr --help
           mkdir docs
           pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf -f markdown+link_attributes -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm"  -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_en.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf/doc_cloud-db_v2.0.0_en.md
           pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf -f markdown+implicit_figures -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm" -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_cn.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf/doc_cloud-db_v2.0.0_zh-CN.md
           cd docs
           ls
+          
+          
       - uses: jakejarvis/s3-sync-action@master
-#         with:
-#           args: --acl public-read --follow-symlinks --delete
+        if: 1==2
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
