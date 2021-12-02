@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: pandoc -v
       - run: /bin/bash
+      - run: echo $PATH
       - run: export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux
+      - run: echo $PATH
       - run: tlmgr --help
 
