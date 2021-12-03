@@ -22,11 +22,17 @@ jobs:
           export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux:/root/.fnm:$PATH
           echo $PATH
           tlmgr --help
-          mkdir docs
-          pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf -f markdown+link_attributes -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm"  -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_en.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf/doc_cloud-db_v2.0.0_en.md
-          pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf -f markdown+implicit_figures -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm" -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_cn.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf/doc_cloud-db_v2.0.0_zh-CN.md
-          cd docs
-          ls
+          node -v
+          pandoc -v
+          
+#       - name: build doc
+#         shell: bash
+#         run: |
+#           mkdir docs
+#           pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf -f markdown+link_attributes -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm"  -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_en.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/en/export_pdf/doc_cloud-db_v2.0.0_en.md
+#           pandoc --toc --toc-depth=2 -s --resource-path=src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf -f markdown+implicit_figures -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm" -V fontsize=10pt -V mainfont="Symbola" -V CJKmainfont="AR PL SungtiL GB"  -V title="Test PDF"  --pdf-engine=xelatex -o  ./docs/test_20_cn.pdf src/pages/docs/docs-enterprise-db/cloud-db/v2.0.0/site/zh-CN/export_pdf/doc_cloud-db_v2.0.0_zh-CN.md
+#           cd docs
+#           ls
           
           
       - uses: jakejarvis/s3-sync-action@master
