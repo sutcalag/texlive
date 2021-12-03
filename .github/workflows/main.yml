@@ -19,6 +19,7 @@ jobs:
       - name: build doc
         shell: bash
         run: |
+          /bin/bash -c source /root/.bashrc
           /bin/bash -c env
           /bin/bash -c tlmgr --help
           /bin/bash -c node -v
