@@ -17,13 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build doc
-        shell: bash
+        shell: bash {0}
         run: |
-          /bin/bash -c source /root/.bashrc
-          /bin/bash -c env
-          /bin/bash -c tlmgr --help
-          /bin/bash -c node -v
-          /bin/bash -c pandoc -v
+          env
+          fnm list
+          tlmgr --help
+          node -v
           
 #       - name: build doc
 #         shell: bash
