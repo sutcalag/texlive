@@ -19,11 +19,11 @@ jobs:
       - name: build doc
         shell: bash
         run: |
-          /bin/bash
-          fnm list
-          tlmgr --help
-          node -v
-          pandoc -v
+          /bin/bash -c fnm list
+          /bin/bash -c tlmgr --help
+          /bin/bash -c tlmgr --help
+          /bin/bash -c node -v
+          /bin/bash -c pandoc -v
           
 #       - name: build doc
 #         shell: bash
