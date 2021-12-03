@@ -19,7 +19,7 @@ jobs:
       - name: build doc
         shell: bash
         run: |
-          ./env.sh
+          sudo ./env.sh
           
 #       - name: build doc
 #         shell: bash
