@@ -19,8 +19,7 @@ jobs:
       - name: build doc
         shell: bash
         run: |
-          /bin/bash -c fnm list
-          /bin/bash -c tlmgr --help
+          /bin/bash -c env
           /bin/bash -c tlmgr --help
           /bin/bash -c node -v
           /bin/bash -c pandoc -v
